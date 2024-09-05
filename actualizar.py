@@ -38,7 +38,7 @@ def cargar_datos():
         cur = conn.cursor()
 
         # Consultar el juego por ID
-        cur.execute("SELECT Nombre, Descripcion, Consola, Ano_de_lanzamiento, Numero_de_jugadores, Imagen FROM juegos WHERE Codigo = %s;", (id_juego,))
+        cur.execute("SELECT Nombre, Descripcion, Consola, Año_de_lanzamiento, Numero_de_jugadores, Imagen FROM juegos WHERE Codigo = %s;", (id_juego,))
         juego = cur.fetchone()
 
         if juego:
@@ -93,7 +93,7 @@ def actualizar_datos():
         # Actualizar los datos del juego
         cur.execute("""
             UPDATE juegos
-            SET Nombre = %s, Descripcion = %s, Consola = %s, Ano_de_lanzamiento = %s, Numero_de_jugadores = %s, Imagen = %s
+            SET Nombre = %s, Descripcion = %s, Consola = %s, Año_de_lanzamiento = %s, Numero_de_jugadores = %s, Imagen = %s
             WHERE Codigo = %s;
         """, (nombre, descripcion, consola, ano_lanzamiento, num_jugadores, imagen_data, id_juego))
 
